@@ -1,0 +1,23 @@
+Space Complexity:
+The space complexity of the produce function primarily depends on the length of the string being generated.
+ Since each iteration of the L-system string involves creating a new string based on the previous one, the space complexity of the produce function is O(|S|),
+  where |S| is the length of the final L-system string.
+
+Time Complexity:
+1.Applying the rules: In each iteration, we need to apply the rules to the current L-system string.
+ Since we need to iterate over each character in the string and potentially replace it with another string according to the rules, the time complexity of applying the rules is O(|S|),
+ where |S| is the length of the current L-system string.
+
+2.Iterations: We perform n iterations of applying the rules. Therefore, the time complexity of the produce function is O(n * |S|), where |S| is the length of the final L-system string.
+
+Optimization:
+1.One optimization could be to store the L-system string as a list of characters instead of a string. 
+This would allow us to modify the string more efficiently, especially when applying the rules. 
+Since strings are immutable in Python, concatenating strings in a loop can lead to inefficient memory usage and performance. 
+By using a list of characters, we can directly modify individual characters in the list, which can be more efficient.
+
+2.Another optimization could be to preprocess the rules to avoid unnecessary lookups during rule application. 
+For example, we could store the rules in a dictionary where the keys are tuples representing the current character and its position in the L-system string, and the values are the replacement strings.
+ This would allow for constant-time lookup of replacement strings during rule application.
+
+ By implementing these optimizations, we can potentially improve both the space and time complexity of the solution.
